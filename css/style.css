@@ -1,0 +1,63 @@
+@import './buttons.css';
+body{
+    background-color: #26B4BC;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.wrapper{
+    max-inline-size: 900px;
+    margin: auto;
+}
+.player{
+    margin-block-start: 100px;/*asi va a estar alineado con mi video*/
+    /* border:10px solid red; */
+    position: relative;/*ponemos relative para que ya no sea  posicion estatico*/
+}
+.player video{
+    inline-size: 100%;/*ancho*/
+    /* margin-block-start: 100px;margen de hacia arriba */
+    aspect-ratio: 16/9;/*Para que se mantenga en el mismo tamaño*//*!investigar mas con ejemplos*/
+    vertical-align: middle;/*Para que no exista espacios en la parte inferior vertical (habia un espacio vacio y eso habia que eliminar)*/
+    object-fit: cover;/*propiedad que se aplica a imagenes lo que hace es expandirse*/
+}
+.player-tittle{
+    color:white;
+    position: absolute;
+    /* border: 10px solid red; */
+
+    /*para modelo logico inset */
+    /*block representa a y , inline representa a x*/
+    inset-block-start:0px ;/*alinear desde arriba*/
+    inset-inline-start: 20px;/*mueve de izquierda a derecha*/
+}
+.player-actions{
+    position: absolute;
+    inset-block-start:50px ;
+    inset: 0;/*Para que ocupe todo el espacio disponible para poder centrarlo  */
+    /* border: 10px solid blue; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* z-index:2 ; */
+    gap: 20px;/*espacio entre los elementos*/
+}
+.player-progress{
+    /* background:yellow; */
+    position: absolute;/*Para que este encima del video*/
+    inset-block-end: 0;/*parte inferior del mismo video*/
+    inset-inline: 0;/*para que ocupe todo el lugar de x */ 
+    display: flex;
+    padding: 10px;
+}
+.player-progress input{
+    flex: 1;/*la barra va a tomar todo el ancho*/
+}
+.player-overlay{
+    position:absolute;
+    inset:0;/*se expande en todos los extremos*/
+    opacity: 0;
+    transition: .3s opacity;/*en 300 milisegundos se van a mostrar mis elementos despues de que se haya hecho un hover*/
+}
+.player:hover .player-overlay{
+/* border:10px solid red ; */
+opacity: 1;
+}
